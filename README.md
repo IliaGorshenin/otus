@@ -6,5 +6,5 @@
 Создайте виртуальное окружение и сделайте его активным:
 ```
 python3 -m venv venv
-.\venv\Scripts\Activate.ps1
+source ./venv/bin/activate
 ```
