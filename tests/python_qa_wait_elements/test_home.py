@@ -1,12 +1,15 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from src.page_home import Home
+
+
+def currency_selection(browser):
+    Home(browser).currency("EUR")
+    Home(browser).currency("GBP")
+    Home(browser).currency("USD")
 
 
 def test_check_home(browser):
-    wait = WebDriverWait(browser, 10)
-    wait.until(EC.title_is("Your Store"))
-    wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@id='logo']//a[1]")))
-    wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Search']")))
-    wait.until(EC.visibility_of_element_located((By.XPATH, "//span[@class='input-group-btn']//button[1]")))
-    wait.until(EC.visibility_of_element_located((By.XPATH, "//div[@id='cart']//button[1]")))
+    assert Home(browser).check_logo()
+    assert Home(browser).check_placeholder()
+    assert Home(browser).check_logo_search()
+    assert Home(browser).check_shopping_basket()
+
