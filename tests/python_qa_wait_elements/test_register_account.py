@@ -1,13 +1,31 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from src.base_page import BasePage
+from src.page_home import Home
+from src.page_register_account import RegisterAccount
+import allure
 
 
+@allure.feature('Тесты на аккаунты')
+@allure.story('Создание нового аккаунта')
+def test_register_new_account(browser):
+    browser.get('https://demo.opencart.com')
+    Home(browser).open_my_account()
+    BasePage(browser).open_search_for_text_element('Register')
+    RegisterAccount(browser).send_first_name("Сидоров")
+    RegisterAccount(browser).send_last_name("Иван")
+    RegisterAccount(browser).send_email("test54321@mail.ru")
+    RegisterAccount(browser).send_phone("+74959876543")
+    RegisterAccount(browser).password("qwert123")
+    RegisterAccount(browser).agree()
+    RegisterAccount(browser).continue_btn()
+    assert BasePage(browser).search_for_text_on_page("Your Account Has Been Created!")
+
+
+@allure.feature('Тесты на аккаунты')
+@allure.story('Проверка полей при регистрации нового пользователя')
 def test_check_register(browser):
-    wait = WebDriverWait(browser, 10)
-    browser.find_element(By.XPATH, "//a[@title='My Account']").click()
-    wait.until(EC.element_to_be_clickable((By.XPATH, "//*[(text() = 'Register')]"))).click()
-    wait.until(EC.title_is("Register Account"))
-    wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@class='form-control']")))
-    wait.until(EC.visibility_of_element_located((By.ID, "input-lastname")))
-    wait.until(EC.visibility_of_element_located((By.ID, "input-email")))
+    browser.get('https://demo.opencart.com')
+    Home(browser).open_my_account()
+    BasePage(browser).open_search_for_text_element('Register')
+    assert RegisterAccount(browser).check_input_first_name()
+    assert RegisterAccount(browser).check_input_last_name()
+    assert RegisterAccount(browser).check_email()
