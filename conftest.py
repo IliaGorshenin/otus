@@ -4,7 +4,7 @@ from selenium import webdriver
 
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="chrome")
-    parser.addoption("--url", action="store", default="https://demo.opencart.com/")
+    parser.addoption("--url", action="store", default="localhost:8081")
 
 
 @pytest.fixture
