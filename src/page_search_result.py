@@ -44,6 +44,26 @@ class SearchResult(BasePage):
             self.find_element(SearchResultLocators.LIMIT_ON_PAGE)
             return True
 
+    def add_to_wish_list(self):
+        self.find_element(SearchResultLocators.ADD_WISH_LIST)
+        return True
+
+    def check_btn_compare(self):
+        self.find_element(SearchResultLocators.COMPARE)
+        return True
+
+    def add_to_cart(self):
+        self.find_element(SearchResultLocators.ADD_TO_CART)
+        return True
+
+    def check_sort(self):
+        self.find_element(SearchResultLocators.SORT_BY)
+        return True
+
+    def check_input_limit(self):
+        self.find_element(SearchResultLocators.LIMIT_ON_PAGE)
+        return True
+
     def check_list_view(self):
         self.find_element(SearchResultLocators.LIST_VIEW)
         return True

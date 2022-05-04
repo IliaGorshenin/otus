@@ -60,3 +60,33 @@ class Home(BasePage):
         with allure.step("Смена валюты"):
             self.find_element(HomeLocators.BTN_CURRENCY).click()
             self.find_element(By.NAME, f"{name}")
+
+    def search_line(self, text):
+        self.find_element(HomeLocators.SEARCH).send_keys(f"{text}")
+        self.find_element(HomeLocators.BTN_SEARCH).click()
+
+    def go_to_desktops(self):
+        self.find_element(HomeLocators.DESKTOPS).click()
+
+    def check_logo(self):
+        self.find_element(HomeLocators.LOGO)
+        return True
+
+    def check_placeholder(self):
+        self.find_element(HomeLocators.PLACEHOLDER_SEARCH)
+        return True
+
+    def check_logo_search(self):
+        self.find_element(HomeLocators.LOGO_BTN_SEARCH)
+        return True
+
+    def check_shopping_basket(self):
+        self.find_element(HomeLocators.SHOPPING_BASKET)
+        return True
+
+    def see_all(self):
+        self.find_element(HomeLocators.SEE_ALL).click()
+
+    def currency(self, name):
+        self.find_element(HomeLocators.BTN_CURRENCY).click()
+        self.find_element(By.NAME, f"{name}")

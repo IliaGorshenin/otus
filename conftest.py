@@ -79,6 +79,7 @@ def pytest_addoption(parser):
     parser.addoption("--url", default="https://demo.opencart.com")
 
 
+
 @pytest.fixture
 def browser(request):
     print("\nstart browser for test..")

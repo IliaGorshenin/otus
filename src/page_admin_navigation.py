@@ -69,3 +69,38 @@ class AdminNavigation(BasePage):
     def delete_product(self):
         with allure.step("Нажатие на кнопку удалить продукт"):
             self.find_element(AdminNavigationLocators.DELETE_PRODUCT_BTN).click()
+
+    def submit_description(self, description):
+        self.find_element(AdminNavigationLocators.DESCRIPTION).send_keys(description)
+
+    def submit_meta_tag(self, tag):
+        self.find_element(AdminNavigationLocators.META_TAG).send_keys(tag)
+
+    def save_new_product(self):
+        self.find_element(AdminNavigationLocators.BTN_SAVE).click()
+
+    def open_catalog(self):
+        self.find_element(AdminNavigationLocators.CATALOG).click()
+
+    def open_products(self):
+        wait = WebDriverWait(self.browser, 10)
+        wait.until(EC.element_to_be_clickable(AdminNavigationLocators.PRODUCTS)).click()
+
+    def add_new_product(self):
+        self.find_element(AdminNavigationLocators.ADD_BTN).click()
+
+    def open_data_product(self):
+        self.find_element(AdminNavigationLocators.DATA_PRODUCT).click()
+
+    def submit_model(self, model):
+        self.find_element(AdminNavigationLocators.MODEL_PRODUCT).send_keys(model)
+
+    def edit_product(self):
+        self.find_element(AdminNavigationLocators.EDIT_PRODUCT_BTN).click()
+
+    def checkbox(self):
+        self.find_element(AdminNavigationLocators.CHECKBOX_ELEMENT).click()
+
+    def delete_product(self):
+        self.find_element(AdminNavigationLocators.DELETE_PRODUCT_BTN).click()
+        

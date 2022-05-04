@@ -12,3 +12,4 @@ def test_check_catalog(browser):
     assert SearchResult(browser).check_input_limit()
     assert SearchResult(browser).check_list_view()
     assert SearchResult(browser).check_grid_view()
+
