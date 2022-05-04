@@ -6,7 +6,6 @@ import allure
 @allure.feature('Тесты на аккаунты')
 @allure.story('Создание нового аккаунта')
 def test_check_catalog(browser):
-    browser.get('https://demo.opencart.com')
     Home(browser).go_to_desktops()
     Home(browser).see_all()
     assert SearchResult(browser).check_sort()

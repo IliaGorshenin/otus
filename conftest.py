@@ -1,13 +1,27 @@
 import datetime
 import os
 import time
+from pathlib import Path
 import allure
 import pytest
 from selenium import webdriver
 import logging
 from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 
-logging.basicConfig(handlers=[logging.FileHandler(filename="logs/test.log", encoding='utf-8')],
+DRIVERS = os.path.expanduser("~/Downloads/drivers")
+
+
+def directory_log():
+    path = (Path.cwd() / "logs")
+    if os.path.exists(path):
+        print("Директория найдена")
+    else:
+        os.mkdir(path)
+        print("Директория создана")
+    return path
+
+
+logging.basicConfig(handlers=[logging.FileHandler(filename=directory_log() / "test.log", encoding='utf-8')],
                     datefmt="%F %A %T",
                     format="[%(asctime)s] %(name)s:%(levelname)s:%(message)s",
                     level=logging.INFO)
@@ -62,6 +76,7 @@ def pytest_addoption(parser):
     parser.addoption("--log_level", action="store", default="DEBUG")
     parser.addoption("--mobile", action="store_true")
     parser.addoption("--bversion")
+    parser.addoption("--url", default="https://demo.opencart.com")
 
 
 @pytest.fixture
@@ -69,6 +84,7 @@ def browser(request):
     print("\nstart browser for test..")
     browser = request.config.getoption("--browser")
     executor = request.config.getoption("--executor")
+    url = request.config.getoption("--url")
     log_level = request.config.getoption("--log_level")
     version = request.config.getoption("--bversion")
     mobile = request.config.getoption("--mobile")
@@ -83,7 +99,7 @@ def browser(request):
         if mobile:
             caps["goog:chromeOptions"]["mobileEmulation"] = {"deviceName": "iPhone 5/SE"}
 
-        driver = webdriver.Chrome(desired_capabilities=caps)
+        driver = webdriver.Chrome(executable_path=f"{DRIVERS}/chromedriver", desired_capabilities=caps)
 
     else:
         executor_url = f"http://{executor}:4444/wd/hub"
@@ -114,6 +130,7 @@ def browser(request):
     driver = EventFiringWebDriver(driver, MyListener())
     driver.test_name = request.node.name
     driver.log_level = log_level
+    driver.get(url)
     logger.info(driver)
 
     def fin():

@@ -8,7 +8,6 @@ import allure
 @allure.feature('Тесты на продукты')
 @allure.story('Удаление продукта из каталога')
 def test_delete_product(browser):
-    browser.get('https://demo.opencart.com/admin/')
     name_product = "Test_name"
     Admin(browser).submit_login("user")
     Admin(browser).submit_password("bitnami")

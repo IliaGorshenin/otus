@@ -7,7 +7,6 @@ import allure
 @allure.feature('Тесты на аккаунты')
 @allure.story('Создание нового аккаунта')
 def test_register_new_account(browser):
-    browser.get('https://demo.opencart.com')
     Home(browser).open_my_account()
     BasePage(browser).open_search_for_text_element('Register')
     RegisterAccount(browser).send_first_name("Сидоров")
@@ -23,7 +22,6 @@ def test_register_new_account(browser):
 @allure.feature('Тесты на аккаунты')
 @allure.story('Проверка полей при регистрации нового пользователя')
 def test_check_register(browser):
-    browser.get('https://demo.opencart.com')
     Home(browser).open_my_account()
     BasePage(browser).open_search_for_text_element('Register')
     assert RegisterAccount(browser).check_input_first_name()
