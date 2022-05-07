@@ -2,10 +2,12 @@ from src.page_admin import Admin
 from src.page_admin_navigation import AdminNavigation
 from src.base_page import BasePage
 from selenium.common.exceptions import NoSuchElementException
+import allure
 
 
+@allure.feature('Тесты на продукты')
+@allure.story('Удаление продукта из каталога')
 def test_delete_product(browser):
-    browser.get("localhost:8081/admin")
     name_product = "Test_name"
     Admin(browser).submit_login("user")
     Admin(browser).submit_password("bitnami")

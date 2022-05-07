@@ -1,2 +1,6 @@
+allure-pytest==2.9.45
 pytest==6.2.5
+pytest-xdist==2.5.0
+requests==2.26.0
 selenium==4.0.0
+
