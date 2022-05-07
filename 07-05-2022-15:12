@@ -1,0 +1,20 @@
+Отчёт о состоянии системы:
+Пользователи системы: 'root, systemd+, avahi, message+, syslog, nvidia-+, postgres, kernoops, gdm, rtkit, colord, ilia'
+Процессов запущено: 352
+Пользовательских процессов:
+root : 180
+systemd+ : 2
+avahi : 3
+message+ : 2
+syslog : 5
+nvidia-+ : 2
+postgres : 8
+kernoops : 3
+gdm : 52
+rtkit : 1
+colord : 2
+ilia : 113
+Всего памяти используется: 70.1%
+Всего CPU используется: 35.4%
+Больше всего памяти использует: /opt/google/chrome/ch
+Больше всего CPU использует: /opt/google/chrome/ch
