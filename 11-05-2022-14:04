@@ -1,0 +1,39 @@
+Отчёт о состоянии системы:
+Пользователи системы: 'igorshenin, _windowserver, _driverkit, root, _datadetectors, _analyticsd, _spotlight, _assetcache, _nsurlsessiond, _fpsd, _applepay, nobody, _installcoordinationd, _gamecontrollerd, _reportmemoryexception, _netbios, _captiveagent, _appleevents, _securityagent, _cmiodalassistants, _softwareupdate, _locationd, _coreaudiod, _networkd, _mdnsresponder, _trustd, _distnote, _displaypolicyd, _usbmuxd, _timed, _iconservices'
+Процессов запущено: 434
+Пользовательских процессов:
+igorshenin : 250
+_windowserver : 2
+_driverkit : 2
+root : 135
+_datadetectors : 1
+_analyticsd : 2
+_spotlight : 4
+_assetcache : 3
+_nsurlsessiond : 3
+_fpsd : 2
+_applepay : 2
+nobody : 1
+_installcoordinationd : 1
+_gamecontrollerd : 1
+_reportmemoryexception : 1
+_netbios : 1
+_captiveagent : 1
+_appleevents : 2
+_securityagent : 1
+_cmiodalassistants : 2
+_softwareupdate : 3
+_locationd : 4
+_coreaudiod : 2
+_networkd : 1
+_mdnsresponder : 1
+_trustd : 1
+_distnote : 1
+_displaypolicyd : 1
+_usbmuxd : 1
+_timed : 1
+_iconservices : 1
+Всего памяти используется: 67.9%
+Всего CPU используется: 69.4%
+Больше всего памяти использует: /Applications/Slack.
+Больше всего CPU использует: /Applications/Slack.
